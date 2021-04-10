@@ -1,0 +1,105 @@
+:root{
+    /*BG colors*/
+    --body-bg-color: bisque;
+    --footer-bg-color: #393939;
+
+
+    /*Text*/
+    --document-main-font: 'IBM Plex Sans', sans-serif;
+
+    --header-color: black;
+    --headr-h1-span-color: black;
+    --header-a-color: black;
+
+
+    --footer-p-color: white;
+
+    --footer-p-a-color: #00ffff;
+    --footer-p-a-font: 'Train One', cursive;
+
+    --footer-a-color: #ff00ed;
+}
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--body-bg-color);
+}
+
+header{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: var(--document-main-font);
+    color: var(--header-color);
+}
+
+header h1 span{
+    position: relative;
+    animation: BTreeAnim;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+
+header h1 a{
+    color: var(--header-a-color);
+}
+
+header p{
+    font-size: 1.2rem;
+}
+
+main{
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main .wrapper{
+    width: 70vw;
+    min-width: 700px;
+    min-height: 300px;
+}
+
+footer{
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    background-color: var(--footer-bg-color);
+    font-family: var(--document-main-font);
+    text-transform: uppercase;
+}
+
+footer p{
+    color: var(--footer-p-color);
+    font-size: 1.2rem;
+}
+
+footer p a{
+    text-decoration: none;
+    font-family: var(--footer-p-a-font);
+    color: var(--footer-p-a-color);
+}
+
+footer a{
+    font-size: 1.2rem;
+    color: var(--footer-a-color);
+    font-weight: bold;
+}

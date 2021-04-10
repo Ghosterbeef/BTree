@@ -1,0 +1,15 @@
+{
+  "name": "Lab2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "debug": "parcel src/html/index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vendor": "^1.7.0"
+  }
+}
