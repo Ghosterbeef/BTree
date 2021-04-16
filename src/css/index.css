@@ -37,6 +37,7 @@ body{
 
 header{
     height: 100px;
+    min-width: 700px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -81,6 +82,7 @@ footer{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    min-width: 700px;
     height: 100px;
     background-color: var(--footer-bg-color);
     font-family: var(--document-main-font);
