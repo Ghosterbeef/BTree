@@ -119,6 +119,10 @@ export default class BTree {
      * @param {number} value
      */
     delete(value) {
+        if(this.root.values.length==1 && this.root.children.length===0){
+            this.root.values = []
+            return
+        }
         if (this.root.n === 1 && !this.root.leaf &&
             this.root.children[0].n === this.order-1 && this.root.children[1].n === this.order -1) {
             // Check if the root can shrink the tree into its childs
