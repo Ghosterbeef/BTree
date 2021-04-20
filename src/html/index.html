@@ -16,35 +16,43 @@
 <header>
     <h1>Реализация <span id="BTree__span">B-дерева</span> на чистом <a href="https://www.javascript.com/"
                                                                        target="_blank">javascript</a></h1>
-    <p>Визуализировано с помощью библиотеки <a href="https://d3js.org/" target="_blank">d3.js</a></p>
+<!--    <p>Визуализировано с помощью библиотеки <a href="https://d3js.org/" target="_blank">d3.js</a></p>-->
 </header>
 <main>
-    <div class="svg-wrapper">
-        <svg id="canvas" class="canvas"></svg>
+    <div class="btn-container">
+        <p class="reload-btn">Перерисовать</p>
+        <p class="tests">Провести тесты</p>
+    </div>
+    <div class="table-wrapper">
+        <div class="table">
+        </div>
     </div>
     <div class="wrapper">
         <form id="insert-form">
             <label for="insert-input"></label>
             <input id="insert-input" type="text" placeholder="Введите значение">
             <button class="insert-btn" type="submit">Добавить</button>
+            <p class="timeTo">Добавьте элемент чтобы измерить время</p>
         </form>
         <form id="search-form">
             <label for="search-input"></label>
             <input id="search-input" type="text" placeholder="Введите значение">
             <button class="search-btn" type="submit">Поиск</button>
+            <p class="timeTo">Найдите элемент чтобы измерить время</p>
         </form>
         <form id="delete-form">
             <label for="delete-input"></label>
             <input id="delete-input" type="text" placeholder="Введите значение">
             <button class="delete-btn" type="submit">Удалить</button>
+            <p class="timeTo">Удалите элемент чтобы измерить время</p>
         </form>
     </div>
 </main>
 <footer>
     <p>Разработал <a href="https://github.com/Ghosterbeef" target="_blank">Ghosterbeef</a> с использованием исходных
-        файлов и документации <a href="https://gist.github.com/sebastianfdez" target="_blank">sebastianfdez</a>.</p>
-    <a href="https://levelup.gitconnected.com/building-a-b-tree-in-javascript-4482dee083cb" target="_blank">Building a
-        B-Tree in JavaScript</a>
+        файлов и документации <a href="https://github.com/dcodeIO" target="_blank">Daniel Wirtz</a>.</p>
+    <a href="https://github.com/dcodeIO/btree.js/" target="_blank">dcodeIO / btree.js
+    </a>
 </footer>
 </body>
 </html>
