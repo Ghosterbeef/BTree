@@ -72,16 +72,13 @@ main{
 
 main .btn-container{
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    left: 1vw;
-    top: 133px;
+    text-align: center;
 }
 
 main .reload-btn{
     background-color: white;
     font-weight: bold;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
     transition: 0.1s;
@@ -91,7 +88,7 @@ main .reload-btn{
 main .tests{
     background-color: white;
     font-weight: bold;
-    padding: 20px;
+    padding: 10px;
     border: 1px solid black;
     border-radius: 10px;
     transition: 0.1s;
