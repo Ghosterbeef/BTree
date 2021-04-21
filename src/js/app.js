@@ -1,10 +1,16 @@
 import * as btree from "./btree"
 import {addTest, delTest, searchTest, getAverage, addTestResults, delTestResults, searchTestResults} from "./test";
 
-let Tree = btree.create(2, btree.numcmp)
+
+const defaultOrder = 2
+let Tree = btree.create(defaultOrder, btree.numcmp)
 let MyBTree = new Tree()
+let sortDirection = true;
 
 const Table = document.querySelector(".table")
+const sortingBtn = document.querySelector(".sorting-btn")
+const orderSelect = document.querySelector(".orderInput")
+orderSelect.value = defaultOrder
 
 
 const timeTo = document.querySelectorAll(".timeTo")
@@ -30,6 +36,8 @@ const timeTo = document.querySelectorAll(".timeTo")
 
     document.querySelector(".reload-btn").addEventListener("click", reloadTable);
     document.querySelector(".tests").addEventListener("click", doTests);
+    sortingBtn.addEventListener("click", toggleSorting);
+    orderSelect.addEventListener("input", orderChange)
 
     function addElement(e) {
         if (e.target.parentNode.childNodes[3].value && parseInt(e.target.parentNode.childNodes[3].value) !== NaN) {
@@ -38,8 +46,7 @@ const timeTo = document.querySelectorAll(".timeTo")
             s_time = performance.now() - s_time
             timeTo[0].textContent = `Время затраченное на добавление: ${s_time.toFixed(5)}`;
             e.target.parentNode.childNodes[3].value = "";
-            tableClear()
-            MyBTree.walk(null, null, tableDraw)
+            drawWithCurrentSorting()
         }
     }
 
@@ -50,8 +57,7 @@ const timeTo = document.querySelectorAll(".timeTo")
             s_time = performance.now() - s_time
             timeTo[2].textContent = `Время затраченное на удаление: ${s_time.toFixed(5)}`;
             e.target.parentNode.childNodes[3].value = "";
-            tableClear()
-            MyBTree.walk(null, null, tableDraw)
+            drawWithCurrentSorting()
         }
     }
 
@@ -72,9 +78,33 @@ const timeTo = document.querySelectorAll(".timeTo")
     }
 
     function reloadTable() {
-        tableClear()
-        MyBTree.walk(null, null, tableDraw)
+        drawWithCurrentSorting()
     }
+}
+
+function orderChange() {
+    if (parseInt(orderSelect.value) <2 || orderSelect.value == "")
+        return
+    let TempBTree = new Tree()
+    MyBTree.walk(null, null, function (key, value) {
+        TempBTree.put(key, value)
+    })
+    Tree = btree.create(parseInt(orderSelect.value), btree.numcmp)
+    MyBTree = new Tree()
+    TempBTree.walk(null, null, function (key, value) {
+        MyBTree.put(key, value)
+    })
+    drawWithCurrentSorting()
+}
+
+function toggleSorting() {
+    sortDirection = !sortDirection
+    if (sortingBtn.textContent === '/\\')
+        sortingBtn.textContent = "\\/"
+    else
+        sortingBtn.textContent = "/\\"
+
+    drawWithCurrentSorting()
 }
 
 function doTests() {
@@ -89,6 +119,16 @@ function doTests() {
     console.table(searchTestResults);
 
     MyBTree = new Tree()
+}
+
+
+export function drawWithCurrentSorting() {
+    tableClear()
+    if (sortDirection) {
+        MyBTree.walk(null, null, tableDraw)
+    } else {
+        MyBTree.walkDesc(null, null, tableDraw)
+    }
 }
 
 export function tableDraw(key, value) {

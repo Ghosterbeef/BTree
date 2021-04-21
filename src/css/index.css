@@ -95,6 +95,26 @@ main .tests{
     margin: 2px;
 }
 
+main .sorting-btn{
+    min-width: 40px;
+    background-color: white;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 0.1s;
+    margin: 2px;
+}
+
+main .orderInput{
+    text-align: center;
+    outline: none;
+    width: 40px;
+    margin: 2px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
 main .tests:hover{
     background-color: blueviolet;
     color: white;
@@ -103,6 +123,13 @@ main .tests:hover{
 }
 
 main .reload-btn:hover{
+    background-color: blueviolet;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+main .sorting-btn:hover{
     background-color: blueviolet;
     color: white;
     border: 1px solid white;
