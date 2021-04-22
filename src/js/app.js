@@ -8,7 +8,7 @@ let MyBTree = new Tree()
 let sortDirection = true;
 
 const Table = document.querySelector(".table")
-const sortingBtn = document.querySelector(".sorting-btn")
+const sortingBtn = document.querySelector(".sorting")
 const orderSelect = document.querySelector(".orderInput")
 orderSelect.value = defaultOrder
 
@@ -34,13 +34,22 @@ const timeTo = document.querySelectorAll(".timeTo")
         searchElement(e)
     })
 
-    document.querySelector(".reload-btn").addEventListener("click", reloadTable);
-    document.querySelector(".tests").addEventListener("click", doTests);
-    sortingBtn.addEventListener("click", toggleSorting);
+    document.querySelector(".reload").addEventListener("click", function (e) {
+        e.preventDefault()
+        reloadTable(e)
+    });
+    document.querySelector(".tests").addEventListener("click", function (e) {
+        e.preventDefault()
+        doTests(e)
+    });
+    sortingBtn.addEventListener("click", function (e) {
+        e.preventDefault()
+        toggleSorting(e)
+    });
     orderSelect.addEventListener("input", orderChange)
 
     function addElement(e) {
-        if (e.target.parentNode.childNodes[3].value && parseInt(e.target.parentNode.childNodes[3].value) !== NaN) {
+        if (e.target.parentNode.childNodes[3].value && !isNaN(parseInt(e.target.parentNode.childNodes[3].value))) {
             let s_time = performance.now()
             MyBTree.put(parseInt(e.target.parentNode.childNodes[3].value), `Это элемент с индексом ${e.target.parentNode.childNodes[3].value}`);
             s_time = performance.now() - s_time
@@ -83,7 +92,7 @@ const timeTo = document.querySelectorAll(".timeTo")
 }
 
 function orderChange() {
-    if (parseInt(orderSelect.value) <2 || orderSelect.value == "")
+    if (parseInt(orderSelect.value) < 2 || orderSelect.value == "")
         return
     let TempBTree = new Tree()
     MyBTree.walk(null, null, function (key, value) {
