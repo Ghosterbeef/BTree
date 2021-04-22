@@ -108,16 +108,37 @@ function orderChange() {
 
 function toggleSorting() {
     sortDirection = !sortDirection
-    if (sortingBtn.textContent === '/\\')
-        sortingBtn.textContent = "\\/"
-    else
-        sortingBtn.textContent = "/\\"
-
+    switch (sortDirection) {
+        case true:
+            sortingBtn.innerHTML = ""
+            sortingBtn.insertAdjacentHTML("beforeend", `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <title>Сортировка по возрастанию</title>
+                    <path d="M10 24v-24h-4v24h-5l7 7 7-7h-5z"></path>
+                    <path d="M14 18h18v4h-18v-4z"></path>
+                    <path d="M14 12h14v4h-14v-4z"></path>
+                    <path d="M14 6h10v4h-10v-4z"></path>
+                    <path d="M14 0h6v4h-6v-4z"></path>
+                </svg>`)
+            break;
+        case false:
+            sortingBtn.innerHTML = ""
+            sortingBtn.insertAdjacentHTML("beforeend", `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <title>Сортировка по убыванию</title>
+                    <path d="M10 24v-24h-4v24h-5l7 7 7-7h-5z"></path>
+                    <path d="M14 0h18v4h-18v-4z"></path>
+                    <path d="M14 6h14v4h-14v-4z"></path>
+                    <path d="M14 12h10v4h-10v-4z"></path>
+                    <path d="M14 18h6v4h-6v-4z"></path>
+                 </svg>`)
+            break;
+    }
+    console.log(sortingBtn.childNodes[0].childNodes[0].src)
     drawWithCurrentSorting()
 }
 
 function doTests() {
-    addTest(MyBTree, 100)
+    addTest(MyBTree, 1000)
+    drawWithCurrentSorting()
     searchTest(MyBTree, 100)
     //delTest(MyBTree, 1000)
     console.log("Среднее время на добавление элемента: " + getAverage(addTestResults))
@@ -127,7 +148,7 @@ function doTests() {
     //console.table(delTestResults);
     console.table(searchTestResults);
 
-    MyBTree = new Tree()
+    //MyBTree = new Tree()
 }
 
 

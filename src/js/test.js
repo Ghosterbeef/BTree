@@ -12,7 +12,7 @@ function getRandomInt(max) {
 export function addTest(Tree, amount) {
     for (let i = 0; i < amount; i++) {
         let s_time = performance.now()
-        Tree.put(getRandomInt(99999999), "Элемент с рандомным ключем")
+        Tree.put(getRandomInt(99999999), "Элемент с рандомным ключом")
         s_time = performance.now() - s_time
         addTestResults.push(s_time)
     }

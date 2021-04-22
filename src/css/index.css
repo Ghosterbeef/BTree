@@ -108,9 +108,12 @@ main .orderInput:hover{
     transition: 0.1s;
 }
 
-svg path{
-    fill: red;
-    stroke: red;
+main .btn svg{
+    fill: black;
+}
+
+main .btn:hover svg{
+    fill: white;
 }
 
 main .btn:hover{
