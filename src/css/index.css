@@ -1,4 +1,4 @@
-:root{
+:root {
     /*BG colors*/
     --body-bg-color: aliceblue;
     --footer-bg-color: #393939;
@@ -11,6 +11,14 @@
     --headr-h1-span-color: black;
     --header-a-color: black;
 
+    --btn-font-color: black;
+    --btn-hover-color: blueviolet;
+    --btn-hover-font-color: white;
+
+
+    --insert-form-hover-color: #2de02d;
+    --search-form-hover-color: #03afff;
+    --delete-form-hover-color: red;
 
     --footer-p-color: white;
 
@@ -20,14 +28,14 @@
     --footer-a-color: #ff00ed;
 }
 
-*, *::before, *::after{
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
 }
 
-body{
+body {
     width: 100vw;
     min-height: 100vh;
     display: flex;
@@ -36,7 +44,7 @@ body{
     font-family: var(--document-main-font);
 }
 
-header{
+header {
     height: 50px;
     min-width: 700px;
     display: flex;
@@ -47,7 +55,7 @@ header{
     color: var(--header-color);
 }
 
-header h1 span{
+header h1 span {
     position: relative;
     animation: BTreeAnim;
     animation-duration: 1s;
@@ -55,15 +63,20 @@ header h1 span{
 }
 
 
-header h1 a{
+header h1 a {
     color: var(--header-a-color);
 }
 
-header p{
+header h1 a:focus{
+    outline-color: blueviolet;
+}
+
+
+header p {
     font-size: 1.2rem;
 }
 
-main{
+main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
@@ -71,60 +84,60 @@ main{
     align-items: center;
 }
 
-main .btn-container{
+main .btn-container {
     display: flex;
     text-align: center;
 }
 
-main .btn{
+main .btn {
     display: flex;
     text-decoration: none;
-    background-color: white;
+    background-color: var(--btn-hover-font-color);
     font-weight: bold;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--btn-font-color);
     border-radius: 10px;
     transition: 0.1s;
     margin: 2px;
+    outline: none;
 }
 
-main .btn img{
-    width: 20px;
-}
-
-main .orderInput{
+main .orderInput {
     text-align: center;
     outline: none;
-    width: 40px;
+    width: 54px;
     margin: 2px;
     border-radius: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--btn-font-color);
 }
 
-main .orderInput:hover{
-    background-color: blueviolet;
-    color: white;
-    border: 1px solid white;
+main .orderInput:hover,.orderInput:focus {
+    background-color: var(--btn-hover-color);
+    color: var(--btn-hover-font-color);
+    border: 1px solid var(--btn-hover-font-color);
     transition: 0.1s;
 }
 
-main .btn svg{
-    fill: black;
+main .btn svg {
+    fill: var(--btn-font-color);
 }
 
-main .btn:hover svg{
-    fill: white;
+main .btn:hover svg {
+    fill: var(--btn-hover-font-color);
+}
+main .btn:focus svg{
+    fill: var(--btn-hover-font-color);
 }
 
-main .btn:hover{
-    background-color: blueviolet;
-    color: white;
-    border: 1px solid white;
+main .btn:hover,.btn:focus {
+    background-color: var(--btn-hover-color);
+    color: var(--btn-hover-font-color);
+    border: 1px solid var(--btn-hover-font-color);
     cursor: pointer;
 }
 
 
-main .table-wrapper{
+main .table-wrapper {
     width: 70vw;
     min-width: 700px;
     height: 600px;
@@ -136,11 +149,11 @@ main .table-wrapper{
 
 }
 
-main .table-wrapper .table{
+main .table-wrapper .table {
     width: 100%;
 }
 
-main .table-wrapper .table .table-element{
+main .table-wrapper .table .table-element {
     width: 100%;
     height: 60px;
     border: 1px solid black;
@@ -152,7 +165,7 @@ main .table-wrapper .table .table-element{
     overflow: hidden;
 }
 
-main .table-wrapper .table .table-element .key{
+main .table-wrapper .table .table-element .key {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,7 +177,8 @@ main .table-wrapper .table .table-element .key{
     background-color: white;
     transition: 0.1s;
 }
-main .table-wrapper .table .table-element .value{
+
+main .table-wrapper .table .table-element .value {
     width: 90%;
     height: 100%;
     background-color: white;
@@ -175,23 +189,23 @@ main .table-wrapper .table .table-element .value{
     transition: 0.1s;
 }
 
-main .table-wrapper .table .table-element:hover{
+main .table-wrapper .table .table-element:hover {
     border: 2px solid white;
 }
 
-main .table-wrapper .table .table-element:hover .key{
+main .table-wrapper .table .table-element:hover .key {
     background-color: blueviolet;
     color: white;
     border-right: 1px solid white;
 }
 
-main .table-wrapper .table .table-element:hover .value{
+main .table-wrapper .table .table-element:hover .value {
     background-color: blueviolet;
     color: white;
 }
 
 
-main .wrapper{
+main .wrapper {
     width: 70vw;
     min-width: 700px;
     max-width: 100vw;
@@ -199,7 +213,7 @@ main .wrapper{
     justify-content: space-between;
 }
 
-form{
+form {
     max-width: 23vw;
     display: flex;
     justify-content: center;
@@ -208,7 +222,7 @@ form{
 }
 
 
-input[type="text"]{
+input[type="text"] {
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;
@@ -219,23 +233,23 @@ input[type="text"]{
     transition: 0.1s;
 }
 
-#insert-input:focus{
-    border: 2px solid #2de02d;
+#insert-input:focus {
+    border: 2px solid var(--insert-form-hover-color)
 }
 
-#search-input:focus{
-    border: 2px solid #03afff;
+#search-input:focus {
+    border: 2px solid var(--search-form-hover-color);
 }
 
-#delete-input:focus{
-    border: 2px solid red;
- }
+#delete-input:focus {
+    border: 2px solid var(--delete-form-hover-color);
+}
 
-input[type="text"]::-webkit-input-placeholder{
+input[type="text"]::-webkit-input-placeholder {
     color: black;
 }
 
-button{
+button {
     outline: none;
     margin: 2px;
     cursor: pointer;
@@ -247,32 +261,32 @@ button{
     color: black;
 }
 
-.delete-btn:hover,.delete-btn:focus{
-    background-color: red;
+.delete-btn:hover, .delete-btn:focus {
+    background-color: var(--delete-form-hover-color);
     color: white;
-    border: 2px solid red;
+    border: 2px solid var(--delete-form-hover-color);
 }
 
 
-.insert-btn:hover,.insert-btn:focus{
-    background-color: #2de02d;
+.insert-btn:hover, .insert-btn:focus {
+    background-color: var(--insert-form-hover-color);
     color: white;
-    border: 2px solid #2de02d;
+    border: 2px solid var(--insert-form-hover-color);
 }
 
-.search-btn:hover,.search-btn:focus{
-    background-color: #03afff;
+.search-btn:hover, .search-btn:focus {
+    background-color: var(--search-form-hover-color);
     color: white;
-    border: 2px solid #03afff;
+    border: 2px solid var(--search-form-hover-color);
 }
 
-.timeTo{
+.timeTo {
     color: black;
     font-weight: bold;
 }
 
 
-footer{
+footer {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -286,18 +300,18 @@ footer{
     text-transform: uppercase;
 }
 
-footer p{
+footer p {
     color: var(--footer-p-color);
     font-size: 1.2rem;
 }
 
-footer p a{
+footer p a {
     text-decoration: none;
     font-family: var(--footer-p-a-font);
     color: var(--footer-p-a-color);
 }
 
-footer a{
+footer a {
     font-size: 1.2rem;
     color: var(--footer-a-color);
     font-weight: bold;
